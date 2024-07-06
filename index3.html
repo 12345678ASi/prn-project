@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Damage Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #upload-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #image-preview {
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Damage Detection</h1>
+    <form id="upload-form">
+        <input type="file" id="image-input" accept="image/*" required>
+        <button type="submit">Upload and Detect</button>
+    </form>
+    <img id="image-preview" src="" alt="Image Preview">
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const imageInput = document.getElementById('image-input');
+            const file = imageInput.files[0];
+            if (!file) {
+                alert('Please upload an image.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function() {
+                const img = document.getElementById('image-preview');
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+
+            // Simulate damage detection and estimation
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Detecting damage...';
+
+            // Replace this with actual backend API call
+            const response = await fetch('http://localhost:5000/detect', {
+                method: 'POST',
+                body: file
+            });
+            const data = await response.json();
+
+            // Display the result
+            resultDiv.innerHTML = `
+                <h2>Damage Details</h2>
+                <p><strong>Damage Type:</strong> ${data.damageType}</p>
+                <p><strong>Estimated Cost:</strong> $${data.estimatedCost}</p>
+                <p><strong>Estimated Repair Time:</strong> ${data.estimatedTime} hours</p>
+            `;
+        });
+    </script>
+</body>
+</html>

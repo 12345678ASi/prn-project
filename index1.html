@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="damage.css">
+    <title>Car Damage Detection App</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo.png" alt="Car Damage Detection Logo">
+        <h1>Car Damage Detection App</h1>
+    </header>
+    <div class="container">
+        <section id="banner">
+            <img src="assets/banner.jpg" alt="Car Damage Detection Banner">
+        </section>
+        <section id="services">
+            <h2>Services</h2>
+            <p>Our app provides advanced car damage detection services with severity estimation and repair cost estimation.</p>
+        </section>
+        <section id="mechanics">
+            <h2>Experienced Mechanics</h2>
+            <p>Contact our skilled mechanics for expert advice and repair services.</p>
+            <ul>
+                <li><img src="assets/service-2.jpg" alt="Mechanic 1"> John Doe - (555) 123-4567</li>
+                <li><img src="assets/service-4.jpg" alt="Mechanic 2"> Jane Smith - (555) 987-6543</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>For inquiries and assistance, please call our customer service:</p>
+            <p class="contact-number">(555) 888-9999</p>
+        </section>
+        <section id="pricing">
+            <h2>Pricing Plans</h2>
+            <p>Choose a pricing plan that fits your needs:</p>
+            <ul>
+                <li>Basic Plan - $29.99/month</li>
+                <li>Standard Plan - $49.99/month</li>
+                <li>Premium Plan - $79.99/month</li>
+            </ul>
+        </section>
+        <section id="testimonials">
+            <h2>Clients Testimonials</h2>
+            <div class="testimonial">
+                <img src="assets/testimonial-1.jpg" alt="Client 1">
+                <p>"I was amazed by the accuracy of the damage detection. Fast and reliable service!" - John</p>
+            </div>
+            <div class="testimonial">
+                <img src="assets/testimonial-2.jpg" alt="Client 2">
+                <p>"The mechanics provided excellent repair services. Highly recommended!" - Jane</p>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About Our App</h2>
+            <p>Our app leverages advanced computer vision techniques to detect car damages and estimate repair costs.</p>
+        </section>
+        <section id="time-required">
+            <h2>Time Required</h2>
+            <p>The time required for damage detection depends on the complexity but typically takes 1-2 hours.</p>
+        </section>
+        <section id="damage-types">
+            <h2>Detected Damage Types</h2>
+            <ul>
+                <li>Scratches</li>
+                <li>Dents</li>
+                <li>Broken Lights</li>
+                <!-- Add more damage types as needed -->
+            </ul>
+        </section>
+        <section id="upload-form">
+            <h2>Upload Image</h2>
+            <form action="#" method="post" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="button" onclick="detectDamage()">Detect Damage</button>
+            </form>
+        </section>
+        <section id="result">
+            <h2>Detected Damage</h2>
+            <p id="damageResult"></p>
+            <h2>Severity</h2>
+            <p id="severityResult"></p>
+            <h2>Estimated Repair Cost</h2>
+            <p id="repairCostResult"></p>
+        </section>
+        <section id="login">
+            <h2>Login to Our App</h2>
+            <button onclick="loginWithGmail()">Login with Gmail</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Car Damage Detection App</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
